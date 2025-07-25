@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play, Users, MessageCircle, Share2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
@@ -47,10 +48,12 @@ const Hero = () => {
               variant="hero" 
               size="xl" 
               className="group"
-              onClick={() => window.location.href = `/room/${Math.random().toString(36).substr(2, 9)}`}
+              asChild
             >
-              <Play className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              Створити кімнату
+              <Link to={`/room/${Math.random().toString(36).substr(2, 9)}`}>
+                <Play className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                Створити кімнату
+              </Link>
             </Button>
             <Button variant="outline" size="xl" className="border-border/50 hover:border-primary/50">
               <Share2 className="h-5 w-5" />
